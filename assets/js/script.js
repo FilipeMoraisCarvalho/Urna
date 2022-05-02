@@ -18,7 +18,7 @@ function comecarEtapa() {
 
     for (let i = 0; i < etapa.numeros; i++) {
         if (i === 0) {
-            numeroHtml += '<div class="numero pisca"></div>';
+            numeroHtml += '<div class="numero pisca espaco"></div>';
         } else numeroHtml += '<div class="numero"></div>';
     }
 
@@ -49,7 +49,12 @@ function atualizaInterface() {
         let fotosHtml = '';
 
         for (let i in candidato.fotos) {
-            fotosHtml += `<div class="d-1-image"> <img src="assets/images/${candidato.fotos[i].url}"/> ${candidato.fotos[i].legenda}</div>`
+            if (candidato.fotos[i].small) {
+                fotosHtml += `<div class="d-1-image small"> <img src="assets/images/${candidato.fotos[i].url}"/> ${candidato.fotos[i].legenda}</div>`
+            } else {
+                fotosHtml += `<div class="d-1-image"> <img src="assets/images/${candidato.fotos[i].url}"/> ${candidato.fotos[i].legenda}</div>`
+            }
+
         }
 
         lateral.innerHTML = fotosHtml;
@@ -111,7 +116,7 @@ function confirma() {
         if (etapas[etapaAtual] !== undefined) {
             comecarEtapa();
         } else {
-
+            document.querySelector('.tela').innerHTML = '<div class="aviso--gigante pisca">FIM</div>';
         }
     }
 }
