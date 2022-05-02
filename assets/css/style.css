@@ -49,37 +49,53 @@ body {
 }
 
 .teclado--botao {
-    width: 70px;
-    height: 40px;
-    background-color: #000;
-    color: #FFF;
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
     margin: 10px;
-    text-transform: uppercase;
-    box-shadow: 3px 3px 0px #555;
+    border: 0;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #FFF;
+    background: #000;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 0.2em;
+    box-shadow: 3px 3px 0 3px #444;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.teclado--botao:active {
+    box-shadow: 0 0 0 0 #444, inset 4px 4px 4px #555;
+    transform: translate(6px, 6px);
 }
 
 .branco {
     background-color: #FFF;
     color: #000;
     font-size: 15px;
+    cursor: pointer;
+    width: 45px;
 }
 
 .corrige {
     background-color: #F09046;
     color: #000;
     font-size: 15px;
+    cursor: pointer;
+    width: 45px;
 }
 
 .confirma {
     background-color: #48C079;
     color: #000;
-    font-size: 15px;
-    width: 90px;
-    height: 50px;
+    font-size: 20px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    line-height: 45px;
 }
 
 .d-1 {
@@ -161,4 +177,9 @@ body {
     font-size: 14px;
     border-top: 2px solid #333;
     padding-left: 10px;
+}
+
+.aviso--grande {
+    font-size: 40px;
+    font-weight: bold;
 }
