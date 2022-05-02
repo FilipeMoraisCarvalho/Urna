@@ -67,8 +67,47 @@ function atualizaInterface() {
 }
 
 
+document.addEventListener('keydown', (e) => {
+    let elNumero = document.querySelector('.numero.pisca');
+    tecla = e.key
+
+    if (elNumero !== null) {
+        if (isNumber(tecla)) {
+            numero = `${numero}${tecla}`;
+            elNumero.innerHTML = tecla;
+            elNumero.classList.remove("pisca");
+            if (elNumero.nextElementSibling !== null) {
+                elNumero.nextElementSibling.classList.add('pisca');
+            } else {
+                atualizaInterface();
+            }
+        }
 
 
+
+
+    }
+});
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function clicou(n) {
+    let elNumero = document.querySelector('.numero.pisca');
+    if (elNumero !== null) {
+        elNumero.innerHTML = n;
+        numero = `${numero}${n}`;
+
+        elNumero.classList.remove("pisca");
+        if (elNumero.nextElementSibling !== null) {
+            elNumero.nextElementSibling.classList.add('pisca');
+        } else {
+            atualizaInterface();
+        }
+
+    }
+}
 
 
 function clicou(n) {
